@@ -1,0 +1,32 @@
+NEWNOD
+      SUBROUTINE NEWNOD(JN) 
+C 
+C  ALLOCATE NEW NODE
+C 
+*CALL,DATA
+C 
+C  LOCATE UNUSED NODE 
+C 
+      DO 102 I=1,MDA
+      IF(LTY(I).EQ.0) GOTO 202
+102   CONTINUE
+      CALL ERROR(16)
+C 
+C  CLEAR DATA FIELDS
+C 
+202   JN=I
+      LTY(I)=1
+      LNX(I)=0
+      LBT(I)=0
+      LSN(I)=0
+      LXM(I)=0
+      LXX(I)=0
+      LYM(I)=0
+      LYX(I)=0
+      LSG(I)=0
+C 
+      DO 204 I=1,MTX
+204   LTX(I,JN)=(1H ) 
+C 
+      RETURN
+      END 

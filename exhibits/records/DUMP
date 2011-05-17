@@ -1,0 +1,29 @@
+DUMP
+      SUBROUTINE DUMP 
+C 
+*CALL,DATA
+*CALL,STACK 
+*CALL,FILE
+*CALL,MOUSE 
+C 
+C  PRINT POINTERS 
+C 
+      WRITE (6,4) IRT,IRD,IRF,IKP,(LFN(I),I=1,NFN)
+4     FORMAT(/'  ROT DIS REF KEP  NAME'//4I4,2X,6A1)
+C 
+C  PRINT NON-NULL NODES 
+C 
+      WRITE(6,1)
+1     FORMAT(/'  NAM NXT SON BTR TYP SEG XM   XX   YM   YX   TEXT'/)
+      DO 3 I=1,MDA
+      IF(LTY(I).NE.0) WRITE(6,2)
+     +    I,LNX(I),LSN(I),LBT(I),LTY(I),
+     +    LSG(I),LXM(I),LXX(I),LYM(I),LYX(I), 
+     +    (LTX(I1,I),I1=1,MTX)
+2     FORMAT(6I4,4I5,2X,40A1) 
+3     CONTINUE
+      WRITE (6,5) NST,(LST(I),I=1,NST)
+5     FORMAT(/'  STACK ',I4//(10I6))
+      RETURN
+C 
+      END 

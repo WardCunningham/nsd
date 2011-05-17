@@ -1,0 +1,11 @@
+PULL
+      SUBROUTINE PULL(J)
+C 
+C  POP J FROM OBJECT TIME STACK 
+C 
+*CALL,STACK 
+      IF(NST.EQ.0) CALL ERROR(6)
+      J=LST(NST)
+      NST=NST-1 
+      RETURN
+      END 
