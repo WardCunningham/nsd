@@ -1,0 +1,3 @@
+SEGS
+COMMON
+      COMMON /SEGS/ LSEG(100) 
