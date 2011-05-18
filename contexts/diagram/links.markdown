@@ -1,22 +1,12 @@
-David C. Anderson
-
-Associate Head for Graduate Studies and Professor Of Mechanical Engineering, by courtesy in Computer Science
-
-School of Mechanical Engineering
-Purdue University
-585 Purdue Mall
-West Lafayette, IN 47907-2088
-
-https://engineering.purdue.edu/ME/People/ptProfile?id=28548
-
--------------
+*Nassi–Shneiderman diagram (NSD)*
 
 In computer programming, a Nassi–Shneiderman diagram (NSD) is a graphical design representation for structured programming. Developed in 1972 by Isaac Nassi and Ben Shneiderman, these diagrams are also called structograms, as they show a program's structures.
 
 http://en.wikipedia.org/wiki/Nassi%E2%80%93Shneiderman_diagram
 
+-------------
 
-A short history of structured flowcharts (Nassi-Shneiderman Diagrams)
+*A short history of structured flowcharts (Nassi-Shneiderman Diagrams)*
 
 Ben Shneiderman (Draft: May 27, 2003)
 
