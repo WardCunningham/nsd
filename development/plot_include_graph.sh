@@ -1,7 +1,7 @@
 cd ../exhibits
 mkdir -p graphs
 perl -e '
-	chdir "records";
+	chdir "records/subroutines";
 	print <<;
 digraph calls {
 node [shape=box,style=filled,fillcolor=gold];
