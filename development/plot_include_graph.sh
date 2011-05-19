@@ -26,3 +26,4 @@ node [shape=box,style=filled,fillcolor=gold];
 }
 
 ' > graphs/includes.dot
+dot -Tsvg graphs/includes.dot -o graphs/includes.svg

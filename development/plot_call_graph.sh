@@ -26,3 +26,4 @@ node [shape=box,style=filled,fillcolor=gold];
 }
 
 ' > graphs/calls.dot
+dot -Tsvg graphs/calls.dot -o graphs/calls.svg
