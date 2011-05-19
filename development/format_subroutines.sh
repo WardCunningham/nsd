@@ -10,19 +10,17 @@ perl -e '
 <body>
 
 
-	for (<*>) {
+	for (<*/*>) {
+		next unless /(\w+)\/(\w+)/;
 		@lines = `cat $_`;
-		shift @lines;
-		my $class = $lines[0] eq "COMMON\n" ? (shift(@lines), "common") : "subroutine";
-		print "<pre class = \"$class\" id = \"$_\">\n", map(fmt(),@lines), "</pre>\n";
-		print stderr "$_ -- $class\n";
+		print "<pre class = \"$1\"id = \"$1$2\">\n", map(fmt(),@lines), "</pre>\n";
 	}
 
 	sub fmt {
 		s/&/&amp;/g;
 		s/</&lt;/g;
-		s/^\*CALL,([A-Z]+)/*CALL,<a href=\"#$1\" class = \"include\">$1<\/a>/;
-		s/\b(CALL\s+)([A-Z]+)(\s*(\(|$))/$1<a href=\"#$2\" class = \"call\">$2<\/a>$3/;
+		s/^\*CALL,([A-Z]+)/*CALL,<a href=\"#includes$1\" class = \"includes\">$1<\/a>/;
+		s/\b(CALL\s+)([A-Z]+)(\s*(\(|$))/$1<a href=\"#subroutines$2\" class = \"subroutines\">$2<\/a>$3/;
 		$_;
 	}
 

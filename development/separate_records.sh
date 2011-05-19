@@ -1,7 +1,17 @@
-mkdir -p ../exhibits/records
-rm ../exhibits/records/*
+mkdir -p ../exhibits/records/includes ../exhibits/records/subroutines
+rm ../exhibits/records/*/*
 cat ../exhibits/files/01 | 
 perl -ne '
-	open F, ">../exhibits/records/$1" if /^([A-Z]{2,})/ and $1 ne "COMMON";
-	print F;
+	if (/^([A-Z]{2,})/) {
+		if ($1 eq "COMMON") {
+			$g = "includes/$f";
+		} else {
+			$f = $1;
+			$g = "subroutines/$1";
+		}
+	} else {
+		open F, ">../exhibits/records/$g" if $g ne $h;
+		$h = $g;
+		print F;
+	}
 '
