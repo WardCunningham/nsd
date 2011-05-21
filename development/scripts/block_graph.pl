@@ -35,13 +35,22 @@ for (<F>) {
 # convert hash elements to dot commands
 
 my $callers = join '', map "$_ -> $sub;\n$_ [URL=\"$_.svg\"]\n", @callers; 
-my $comments = join '', map "$_ [label=\"$comments{$_}\"];\n", sort keys %comments;
+my $comments = join '', map "$_ [label=\"" . fold($comments{$_}) . "\"];\n", sort keys %comments;
 my $sequence = join '', map "$_ -> $sequence{$_};\n", sort keys %sequence;
 my $return = join '', map "$_ -> $return{$_};\n", sort keys %return;
 for $i (sort keys %called) {$called .= join('', map("$i -> $_\n", split(' ', $called{$i})))};
 for $i (sort keys %used) {$used .=  join('', map("$i -> $_\n", split(' ', $used{$i})))};
 for $i (sort keys %goto) {$goto .=  join('', map("$i -> $_\n", split(' ', $goto{$i})))};
 for $i (sort keys %label) {$label .=  join('', map("$_ -> $i\n", split(' ', $label{$i})))};
+
+sub fold {
+	return $_[0] if $_ eq 'b1';
+	local $_ = $_[0];
+	s/ *\\n$//;
+	s/ {2,}/ /g;
+	s/ (\S{3,})/\\n$1/g;
+	return $_;
+}
 
 # assemble dot commands into complete file with styling
 
