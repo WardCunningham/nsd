@@ -26,7 +26,7 @@ for (<F>) {
 		$return{$b} = 'RET' if /RETURN/;
 		$called{$b} .= "$1 " if /CALL (\w+)/;
 		$goto{$b} .= "$1 " if /GOTO (\d+)/;
-		if (/GOTO \(/) {while (/(\d+)/g) {$goto{$b} .= "$1 ";}}
+		if (/GOTO \(/) {while (/\b(\d+)\b/g) {$goto{$b} .= "$1 ";}}
 		$label{$b} .= "$1 " if /^(\d+)/;
 		$prev = $_;
 	}
