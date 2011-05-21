@@ -24,10 +24,10 @@ for (<F>) {
 		$mode = 'code';
 		$blanks = 0;
 		$return{$b} = 'RET' if /RETURN/;
-		$called{$b} .= "$1 " if /CALL (\w+)/;
-		$goto{$b} .= "$1 " if /GOTO (\d+)/;
-		if (/GOTO \(/) {while (/\b(\d+)\b/g) {$goto{$b} .= "$1 ";}}
-		$label{$b} .= "$1 " if /^(\d+)/;
+		$called{$b} .= "$1 " if /CALL (\w+)/ and !$mark{"$b called $1"}++;
+		$goto{$b} .= "$1 " if /GOTO (\d+)/ and !$mark{"$b goto $1"}++;
+		if (/GOTO \(/) {while (/\b(\d+)\b/g) {$goto{$b} .= "$1 " if !$mark{"$b goto $1"}++;}}
+		$label{$b} .= "$1 " if /^(\d+)/ and !$mark{"$1 labeled $b"}++;
 		$prev = $_;
 	}
 }
