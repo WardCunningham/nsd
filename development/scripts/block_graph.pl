@@ -2,6 +2,8 @@ my $sub = $ARGV[0];
 my @callers = ('MAIN','ZOOM','INCMND');
 $mode = 'code';
 
+# scan source detecting alternating blocks of comments and code
+
 open F, "$sub" or die($!);
 for (<F>) {
 	if (/^C\s*$/){
@@ -29,6 +31,8 @@ for (<F>) {
 	}
 }
 
+# convert hash elements to dot commands
+
 my $callers = join '', map "$_ -> $sub;\n$_ [URL=\"$_.svg\"]\n", @callers; 
 my $comments = join '', map "$_ [label=\"$comments{$_}\"];\n", sort keys %comments;
 my $sequence = join '', map "$_ -> $sequence{$_};\n", sort keys %sequence;
@@ -37,6 +41,8 @@ for $i (sort keys %called) {$called .= join('', map("$i -> $_\n", split(' ', $ca
 for $i (sort keys %used) {$used .=  join('', map("$i -> $_\n", split(' ', $used{$i})))};
 for $i (sort keys %goto) {$goto .=  join('', map("$i -> $_\n", split(' ', $goto{$i})))};
 for $i (sort keys %label) {$label .=  join('', map("$_ -> $i\n", split(' ', $label{$i})))};
+
+# assemble dot commands into complete file with styling
 
 print <<EOF;
 digraph draw {
