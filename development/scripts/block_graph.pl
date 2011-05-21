@@ -6,11 +6,12 @@ $mode = 'code';
 
 open F, "$sub" or die($!);
 for (<F>) {
+	next if /^\d+\s+(FORMAT|CONTINUE)/;
+	next if /^C     GOTO 902/;
 	if (/^C\s*$/){
 		$blanks++;
 		next;
 	}
-	next if /^\d+\s+(FORMAT|CONTINUE)/;
 	if (/^C\s*(.+)$/) {
 		if ($mode eq 'code') {
 			$mode = 'comments';
