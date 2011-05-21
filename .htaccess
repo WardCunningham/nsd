@@ -1,1 +1,2 @@
 AddType text/plain .sh
+AddType text/plain .dot
