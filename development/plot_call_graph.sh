@@ -1,7 +1,6 @@
-cd ../exhibits
-mkdir -p graphs
+mkdir -p data/graphs ../exhibits/graphs
 perl -e '
-	chdir "records/subroutines";
+	chdir "data/records/subroutines";
 	print <<;
 digraph calls {
 node [shape=box,style=filled];
@@ -24,5 +23,5 @@ node [shape=box,style=filled];
 	print <<;
 }
 
-' > graphs/calls.dot
-dot -Tsvg graphs/calls.dot -o graphs/calls.svg
+' > data/graphs/calls.dot
+dot -Tsvg data/graphs/calls.dot -o ../exhibits/graphs/calls.svg

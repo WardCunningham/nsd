@@ -1,7 +1,6 @@
-cd ../exhibits
-mkdir -p subroutines
+mkdir -p ../exhibits/subroutines
 perl -e '
-	chdir "records";
+	chdir "data/records";
 	print <<;
 <html>
 <head>
@@ -28,4 +27,4 @@ perl -e '
 </body>
 </html>
 
-' > subroutines/index.html
+' > ../exhibits/subroutines/index.html

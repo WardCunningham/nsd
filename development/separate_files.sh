@@ -1,2 +1,2 @@
-mkdir -p ../exhibits/files
-tr '\r' '\n' < ../artifacts/original.txt | csplit -f '../exhibits/files/' - '/DATA/'
+mkdir -p data/files
+tr '\r' '\n' < ../artifacts/original.txt | csplit -f 'data/files/' - '/DATA/'
