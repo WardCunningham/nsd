@@ -9,7 +9,7 @@ $mode = 'code';
 
 open F, "$sub" or die($!);
 for (<F>) {
-	next if /^\d+\s+(FORMAT|CONTINUE)/;
+	next if /^\d+\s+(FORMAT)/;
 	next if /^C     GOTO 902/;
 	if (/^C\s*$/){
 		$blanks++;
@@ -31,6 +31,7 @@ for (<F>) {
 		$used{$b} .= "$1 " if /CALL (\w+)/ and !-f $1 and !$mark{"$b used $1"}++;
 		$goto{$b} .= "$1 " if /GOTO (\d+)/ and !$mark{"$b goto $1"}++;
 		$goto{$b} .= "$1 " if /DO (\d+)/ and !$mark{"$b goto $1"}++;
+		$goto{$b} .= "$1 " if /^(\d+)\sCONTINUE/ and !$mark{"$b goto $1"}++;
 		if (/GOTO \(/) {while (/\b(\d+)\b/g) {$goto{$b} .= "$1 " if !$mark{"$b goto $1"}++;}}
 		$label{$b} .= "$1 " if /^(\d+)/ and !$mark{"$1 labeled $b"}++;
 		$prev = $_;
