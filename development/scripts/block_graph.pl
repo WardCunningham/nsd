@@ -60,6 +60,7 @@ digraph draw {
 	
 #callers
 node [shape=rectangle style=filled fillcolor=gold]
+$sub [penwidth=2 URL="../../subroutines/#subroutines$sub"]
 $callers
 
 #comments
