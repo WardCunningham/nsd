@@ -1,5 +1,8 @@
 my $sub = $ARGV[0];
 my @callers = ('MAIN','ZOOM','INCMND');
+my @callers = `cat ../../callers/$sub`;
+map chomp($_), @callers;
+
 $mode = 'code';
 
 # scan source detecting alternating blocks of comments and code
