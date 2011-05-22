@@ -68,6 +68,9 @@ node [shape=rectangle style=filled fillcolor=gold]
 $sub [penwidth=2 URL="../../subroutines/#subroutines$sub"]
 $callers
 
+#return to call graph
+"⇧" [URL="../calls.svg" shape=circle penwidth=0]
+
 #comments
 node [fillcolor=white penwidth=0]
 $sub -> b1;
