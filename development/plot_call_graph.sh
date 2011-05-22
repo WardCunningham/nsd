@@ -7,7 +7,7 @@ node [shape=box,style=filled];
 
 	for my $file (<*>) {
 		print stderr "$file\n";
-		print "$file [fillcolor=gold URL=\"../subroutines/#subroutines$file\"];\n" unless $file eq "BLKDATA";
+		print "$file [fillcolor=gold URL=\"blocks/$file.svg\"];\n" unless $file eq "BLKDATA";
 		@lines = `cat $file`;
 		for (@lines) {
 			# print "$file -> $1;\n" if /^\*CALL,([A-Z]+)/
