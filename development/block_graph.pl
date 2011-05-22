@@ -24,7 +24,8 @@ for (<F>) {
 		$mode = 'code';
 		$blanks = 0;
 		$return{$b} = 'RET' if /RETURN/;
-		$called{$b} .= "$1 " if /CALL (\w+)/ and !$mark{"$b called $1"}++;
+		$called{$b} .= "$1 " if /CALL (\w+)/ and -f $1 and !$mark{"$b called $1"}++;
+		$used{$b} .= "$1 " if /CALL (\w+)/ and !-f $1 and !$mark{"$b used $1"}++;
 		$goto{$b} .= "$1 " if /GOTO (\d+)/ and !$mark{"$b goto $1"}++;
 		$goto{$b} .= "$1 " if /DO (\d+)/ and !$mark{"$b goto $1"}++;
 		if (/GOTO \(/) {while (/\b(\d+)\b/g) {$goto{$b} .= "$1 " if !$mark{"$b goto $1"}++;}}
