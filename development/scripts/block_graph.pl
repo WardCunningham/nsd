@@ -16,7 +16,7 @@ for (<F>) {
 		if ($mode eq 'code') {
 			$mode = 'comments';
 			$n++;
-			$sequence{$b} = "b$n" unless ($n==1) or ($prev =~ /GOTO|RETURN/);
+			$sequence{$b} = "b$n" unless ($n==1) or ($prev =~ /^\s+GOTO|RETURN/);
 			$b = "b$n";
 		}
 		$comments{$b} .= "$1\\n" unless $blanks > 1;
