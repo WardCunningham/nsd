@@ -1,4 +1,3 @@
-
 body {
 	background-color:#ccc;
 }
@@ -7,4 +6,12 @@ pre {
 	background-color:#fff;
 	margin:25px;
 	padding:25px;
+}
+
+pre.subroutines.popup {
+    border : 1px solid red;
+    position : absolute;
+}
+#subroutinesMAIN {
+    display : block;
 }
