@@ -1,2 +1,3 @@
 AddType text/plain .sh
 AddType text/plain .dot
+DirectoryIndex index.svg

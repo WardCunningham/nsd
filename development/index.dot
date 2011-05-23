@@ -1,0 +1,76 @@
+digraph make {
+node [style=filled fillcolor=gold]
+
+subgraph cluster_artifacts {
+label=artifacts;
+style=filled;
+color=lightgrey;
+URL="artifacts"
+original [URL="artifacts/original.txt"];
+}
+
+subgraph cluster_contexts {
+label=contexts;
+style=filled;
+color=lightgrey;
+URL="contexts"
+imlac [URL="contexts/imlac"];
+diagram [URL="contexts/diagram"];
+lab [URL="contexts/lab"];
+}
+
+subgraph cluster_exhibits {
+label=exhibits
+style=filled;
+color=lightgrey;
+URL="exhibits"
+subroutines [URL="exhibits/subroutines/#subroutinesMAIN"];
+calls [URL="exhibits/calls.svg"];
+includes [URL="exhibits/includes.svg"];
+blocks [URL="exhibits/blocks/MAIN.svg"];
+
+subgraph cluster_graphs {
+label=graphs
+style=filled;
+color=grey;
+URL="exhibits/graphs"
+calls [URL="exhibits/graphs/calls.svg"];
+includes [URL="exhibits/graphs/includes.svg"];
+blocks [URL="exhibits/graphs/blocks/MAIN.svg"];
+}
+
+}
+
+subgraph cluster_development {
+label="development"
+style=filled;
+color=lightgrey;
+URL="development"
+
+subgraph cluster_data {
+label="data"
+style=filled;
+color=grey;
+URL="development/data"
+files [URL="development/data/files"];
+records [URL="development/data/records"];
+callers [URL="development/data/callers"];
+}
+
+node [shape=rectangle fillcolor=white]
+original -> "separate\nfiles" -> files;
+records -> "plot\nblock\ngraphs" -> blocks;
+callers -> "plot\nblock\ngraphs";
+files -> "separate\nrecords" -> records;
+records -> "invert\ncallers" -> callers;
+records -> "format\nsubroutines" -> subroutines;
+records -> "plot\ncall\ngraph" -> calls;
+records -> "plot\ninclude\ngraph" -> includes;
+}
+
+edge [color=white]
+calls -> blocks;
+blocks -> calls;
+blocks -> blocks;
+blocks -> subroutines;
+}
