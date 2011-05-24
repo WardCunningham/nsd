@@ -32,7 +32,7 @@ blocks [URL="exhibits/blocks/MAIN.svg"];
 subgraph cluster_graphs {
 label=graphs
 style=filled;
-color=grey;
+color=silver;
 URL="exhibits/graphs"
 calls [URL="exhibits/graphs/calls.svg"];
 includes [URL="exhibits/graphs/includes.svg"];
@@ -50,7 +50,7 @@ URL="development"
 subgraph cluster_data {
 label="data"
 style=filled;
-color=grey;
+color=silver;
 URL="development/data"
 files [URL="development/data/files"];
 records [URL="development/data/records"];
