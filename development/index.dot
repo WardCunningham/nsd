@@ -55,11 +55,15 @@ URL="development/data"
 files [URL="development/data/files"];
 records [URL="development/data/records"];
 callers [URL="development/data/callers"];
+info [URL="development/data/info"]
 }
 
 node [shape=rectangle fillcolor=white]
 original -> "separate\nfiles" -> files;
 records -> "plot\nblock\ngraphs" -> blocks;
+records -> "extract\ninfo" -> info;
+"extract\ninfo" -> records;
+"insert\nannotations" -> records;
 callers -> "plot\nblock\ngraphs";
 files -> "separate\nrecords" -> records;
 records -> "invert\ncallers" -> callers;
