@@ -72,9 +72,7 @@ records -> "plot\ncall\ngraph" -> calls;
 records -> "plot\ninclude\ngraph" -> includes;
 }
 
-edge [color=white]
-calls -> blocks;
-blocks -> calls;
-blocks -> blocks;
-blocks -> subroutines;
+edge [color=gray]
+calls -> blocks -> blocks -> calls;
+blocks -> subroutines -> subroutines;
 }
