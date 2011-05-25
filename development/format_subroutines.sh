@@ -24,8 +24,16 @@ perl -e '
 		s/&/&amp;/g;
 		s/</&lt;/g;
 		s/^\*CALL,([A-Z]+)/*CALL,<a href=\"#includes$1\" class=\"includes\">$1<\/a>/;
-		s/\b(CALL\s+)([A-Z]+)(\s*(\(|$))/$1<a href=\"#subroutines$2\" class=\"subroutines\">$2<\/a>$3/;
+		s/\b(CALL\s+)([A-Z]+)(\s*(\(|$))/call()/eo;
 		$_;
+	}
+
+	sub call {
+		if (-f "subroutines/$2") {
+			"$1<a href=\"#subroutines$2\" class=\"subroutines\">$2<\/a>$3"
+		} else {
+			"$1$2$3"
+		}
 	}
 
 	print <<;
