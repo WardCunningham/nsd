@@ -17,6 +17,7 @@ URL="contexts"
 imlac [URL="contexts/imlac"];
 diagram [URL="contexts/diagram"];
 lab [URL="contexts/lab"];
+restoration [URL="contexts/restoration"];
 }
 
 subgraph cluster_exhibits {
