@@ -28,6 +28,7 @@ subroutines [URL="exhibits/subroutines/#subroutinesMAIN"];
 calls [URL="exhibits/calls.svg"];
 includes [URL="exhibits/includes.svg"];
 blocks [URL="exhibits/blocks/MAIN.svg"];
+home [URL="index.html"];
 
 subgraph cluster_graphs {
 label=graphs
