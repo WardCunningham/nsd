@@ -1,3 +1,4 @@
+echo $0
 git push
 ssh c2.com '
 	cd web/nsd/development

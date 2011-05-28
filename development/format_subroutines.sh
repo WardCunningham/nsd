@@ -1,3 +1,4 @@
+echo $0
 mkdir -p ../exhibits/subroutines
 perl -e '
 	chdir "data/records";

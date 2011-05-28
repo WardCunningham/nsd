@@ -1,8 +1,8 @@
+echo $0
 mkdir -p data/callers
 perl -e '
 	chdir "data/records/subroutines";
 	for my $file (<*>) {
-		print stderr "$file\n";
 		@lines = `cat $file`;
 		for (@lines) {
 			# print "$file -> $1;\n" if /^\*CALL,([A-Z]+)/

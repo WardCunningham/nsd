@@ -1,3 +1,4 @@
+echo $0
 mkdir -p data/info
 perl -i -n -e 'if ($. >= 70 and $. <= 94) {print stderr} else {print}' data/records/subroutines/MAIN 2>data/info/errors
 perl -i -n -e 'if ($. >= 47 and $. <= 69) {print stderr} else {print}' data/records/subroutines/MAIN 2>data/info/limitations

@@ -1,3 +1,4 @@
+echo $0
 mkdir -p data/records/includes data/records/subroutines
 rm data/records/*/*
 cat data/files/01 | 

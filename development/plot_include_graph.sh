@@ -1,3 +1,4 @@
+echo $0
 mkdir -p data/graphs ../exhibits/graphs
 perl -e '
 	chdir "data/records/subroutines";
@@ -6,7 +7,6 @@ digraph calls {
 node [shape=box,style=filled];
 
 	for my $file (<*>) {
-		print stderr "$file\n";
 		@lines = `cat $file`;
 		for (@lines) {
 			next unless /^\*CALL,([A-Z]+)/;

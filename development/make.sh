@@ -1,3 +1,4 @@
+echo $0
 sh separate_files.sh
 sh separate_records.sh
 sh insert_annotations.sh
