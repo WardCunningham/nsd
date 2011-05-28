@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>NSD Editor Correspondence</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<div class="period">
+<h2>April</h2>
+<div class="letter">
+April 21, 2011
+
+Randal -- I'd like to format an old fortran program as if it were a museum exhibit. One thought was to just put it in GitHub and write comments about various sections. But I think I could do better. 
+
+I'd especially like to have pictures in my comments. I'm imagining comment bubbles in a large margin along side the program listing.
+
+Would you help me do this? I think you could:
+
+	* help me think through who would be reading this and why
+	* sketch a presentation that is both easy and effective
+	* get me started with html and css for that presentation
+
+Here is the program, slightly transformed with a perl script. Its exceptional in that it was written in nine compiles, one a week for one semester. There are a handful of other oddities about the program. That is what I'd like to put into the comments: my own reflections on how this program influenced my later thinking.
+
+ 	<a href="http://c2.com/~ward/me-lang/">http://c2.com/~ward/me-lang/</a>
+
+("me" stands for Mechanical Engineering. They had the one graphics computer on campus, and I got it for 1 hour a week.)
+
+Best regards. -- Ward
+</div>
+<div class="letter">
+April 21, 2011
+	
+Randall -- Let's try this address. My records show perl@sonofhans.net as an address you've used but I'm guessing it was intended for correspondence on the perl list.
+
+I'm more interested in doing this project with finesse than getting it done quickly. My attention span could be stretched to a month or two.
+
+I've experimented with program preservation before:
+
+	<a href="http://c2.com/~ward/pdp8sim/">http://c2.com/~ward/pdp8sim/</a>
+	<a href="http://c2.com/~ward/pdp8sim/paper.html">http://c2.com/~ward/pdp8sim/paper.html</a> -- abruptly abandoned explanation
+
+This attempt at restoration is in need of restoration itself. I wrote it using Netscape's html authoring tool which made a mess of the html. It might be possible to sprinkle some css or jquery magic over it and have it 10x user friendly. Thoughts?
+
+I see from the file dates that this restoration took place on Nov 12th and 19th, 1998. I seem to remember it was weekends but cal says Thursdays:
+<pre>
+	    November 1998
+	Su Mo Tu We Th Fr Sa 
+	 1  2  3  4  5  6  7
+	 8  9 10 11 12 13 14
+	15 16 17 18 19 20 21
+	22 23 24 25 26 27 28
+	29 30
+</pre>
+I like digging through old programs because I have insights about them that are hard to read from the code. I'd like to expand this practice. I follow some of the work at the Computer History Museum and have brought my work to their attention. But at this point they are more interested in capturing programs in some indelible form and leaving interpretation to later.
+
+Best regards. -- Ward
+</div>
+</div>
+<div class="period">
+<h2>May</h2>
+<div class="letter">
+May 7, 2011
+
+I think this would be a fun project and I'd like to get together to talk with you and sketch some.  Possibly over beer :)  What's your schedule like the next week or so?  I only know of plans Wednesday evening. -- r
+</div>
+<div class="letter">
+May 8, 2011
+
+I will be home from L.A. next Sunday (1 week from today). Let's plan to get together the following Monday. I suggest meeting at the brew pub along with the North Portland Coders (Sam's crew). Would this work for you?
+
+suggested agenda:
+
+	1. what is program preservation?
+	2. who benefits, and when?
+	3. would it be valuable to experiment?
+	4. can we experiment as "amateurs"?
+	5. what are fruitful next steps?
+</div>
+<div class="letter">
+May 16, 2011
+
+Randal -- I've tried not to think about this too much so as to not jump the gun on our collaboration. However, I can imagine our conversation beginning with the question, "so, what did you have in mind?" 
+
+Writing the program in question was unique in my experience. I would like to refresh my memory of that experience by working through the remaining artifact in a reasonably careful way. At the least, take notes to be shared.
+
+I consider this reexamination to be a design task on the same order as writing the original program. I'm imagining a web site that uses interactive mechanisms of modern web design to enable casual visitors to establish a context suitable for reading old code. My interest today is in the nature of this contextualization problem, not in anyway promoting myself or the original program.
+
+I would like for our work together to model a process that can be repeated by others for other historical programs. I have followed the Software Preservation efforts of the Computer History Museum since their beginnings. My hope is that we create a "display" of sufficient practicality, simplicity and elegance that it might influence this community.
+
+I'm imagining that we can sketch out the organization of such a display this evening. Perhaps it would fit nicely into a GitHub project and we can cast the initial commit before we part. 
+
+As we proceed we may find it convenient to draw finer distinctions.
+
+I would like to try writing a script that exploits my knowledge of the program structure and coding conventions so as to transform the original text into html that can be usefully styled. It would help me read my own program if this included roll-over highlighting of related elements (variables, functions, etc) as they are scattered throughout the text. If you would help me "spike" this much then we would have nascent versions of several sections. If it produced # anchors then I could start writing notes with references of some precision.
+
+I'm looking forward to hearing what would make this an interesting project for you. 
+
+Best regards. -- Ward
+
+
+p.s. The program is an editor for programs expressed as Nassi-Schneiderman diagrams (NSD). Today I would say that NSDs provide an elegant display of the less important parts of program structure. Ben Schneiderman has generalized the area subdivision principles he pioneered here to make a popular data visualization.
+
+	<a href="http://en.wikipedia.org/wiki/Nassi%E2%80%93Shneiderman_diagram">http://en.wikipedia.org/wiki/Nassi–Shneiderman diagram</a>
+
+</div>
+<div class="letter">
+May 16, 2011
+
+Randal -- I've created a project on GitHub and made you a collaborator:
+
+	<a href="https://github.com/WardCunningham/nsd">https://github.com/WardCunningham/nsd</a>
+
+It follows the organization I've suggested below. The original program was written as a bunch of short records which were assembled into a fortran source file by a batch editor called modify. I'm struggling to remember all of its conventions. I have isolated the subroutines. Here is the main program:
+
+	<a href="https://github.com/WardCunningham/nsd/blob/master/exhibits/records/MAIN">obsolete link</a>
+
+Fortran manages global data through a mechanism called "common" which can be initialized with "block data". I describe the editor's data structures in the block data record:
+
+	<a href="https://github.com/WardCunningham/nsd/blob/master/exhibits/records/BLKDATA">obsolete link</a>
+
+Best regards. -- Ward
+</div>
+<div class="letter">
+May 17, 2011
+
+Randal -- I forgot to mention, I've deployed the nsd repo on c2.com where the browsing experience is pretty much like browsing on GitHub but without any of GitHub's formatting.
+
+	<a href="http://c2.com/nsd/">http://c2.com/nsd/</a>
+
+This is crying out for an index.html file. I thought I'd do without until we'd gotten something working together.
+
+I'll work on the div-enhanced version tonight. I will do this simply enough that you can modify and re-run the generator if you'd like the divs to be a little different.
+
+Best regards. -- Ward
+</div>
+<div class="letter">
+May 17, 2011
+
+Randal -- I've put in the most basic markup. You can look at the generated file with basic styling here:
+
+	<a href="http://c2.com/nsd/exhibits/subroutines/#MAIN">http://c2.com/nsd/exhibits/subroutines/#MAIN</a>
+
+It even navigates in a simple way. However, I notice these problems:
+
+	* chrome looses your place scrolling when you back up to the calling routine (safari doesn't)
+	* some names are both subroutine and common, need qualifying prefix in IDs?
+	* some subroutines come from libraries, link could go to documentation in MAIN
+
+Best regards -- Ward
+</div>
+<div class="letter">
+May 18, 2011
+
+Dave -- I wonder what ever became of the Imlac graphics lab you ran in the 1970s? I wrote a graphics editor for that Imlac using a Fortran cross-compiler that ran on the PDP machine that shared the room. I completed this work in one semester working one hour a week in the lab. Most of that hour was spent compiling my program on the attached PDP so I had to get as much information out of each run as possible. This experience colored my style of development in a way that has survived to this day.
+
+A colleague and I have just started "restoring" the program, mostly to explore ways old programs could be usefully presented online.
+
+	<a href="http://c2.com/nsd/exhibits/subroutines/#MAIN">http://c2.com/nsd/exhibits/subroutines/#MAIN</a>
+
+The my program was a graphical editor for flow charts drawn in an area-splitting style suggested by Nassi&Schniderman. I remember showing this application to you at the end of the term. You had warned me that the potentiometers in the mouse were noisy and did not make for a satisfactory experience. I filtered the data from them ( 4/5 old + 1/5 new) which gave the cursor a silky motion. Perhaps this was the most impressive part of my demonstration. I was pleased that you noticed. The code starts at statement 202 here:
+
+	<a href="http://c2.com/nsd/exhibits/subroutines/#TRACKR">http://c2.com/nsd/exhibits/subroutines/#TRACKR</a>
+
+I would like to collect documents related to that computing environment. Do you happen to have old documents that describe the graphics library made available for Fortran programs executing on the Imlac? Do you recall who wrote the Fortran compiler? Does documentation for it persist? What became of it?
+
+I see by reading online that Moira Gunn participated in the lab. I shared an office with her in CS and still see her on occasion. I also note Bob Bellevue was active there. I knew Bob's name from work he did on the CDC 252. I didn't know Bob then but understand he was instrumental at Apple in the early Macintosh days.
+
+I left Purdue to work in the Tektronix Computer Research Lab. After 10 years there I've bounced around in a number of jobs but have managed to maintain a scientific curiosity into the ever increasing capability of computers. My most notable success is wiki, the collaboration approach that launched Wikipedia.
+
+I hope all is well with you and that West Lafayette is still a wonderful place to be. Best regards. -- Ward
+</div>
+<div class="letter">
+May 19, 2011
+
+Hi Ward-
+
+That was a long time ago!  The Imlac's were replaced by Megatek 3D systems driven over a parallel interface by a PDP 11/40 running Unix. These were replaced by Sun workstations. For these systems, we used our own graphics package, always called "Grafic", so that programming was easy and available in several languages (pascal, C, fortran). We moved from vector graphics to raster graphics. ME573 (aka CS535) changed over the years with the technology, but kept a focus on 2D/3D graphics for computer aided design. When the PC's arrived, we were able to have full color ray tracing as a project.
+
+In ME574 (project class), I used Java for about 5 years (with an OpenGL interface from a small company in England, which went defunct), then went to OpenGL and C++. Projects ranged from CAD systems to 3D animation. I emphasized 3D interaction in the later years.
+
+I stopped teaching the graphics courses about 5-7 years ago, and they're now taught by CS with a different emphasis.
+
+Mo Gunn is now a "Tech Talk" NPR radio personality out of San Francisco. She's been honored by Purdue as a Distinguished Eng. Alumnus, also in Science, also an Old Master.
+
+Bob Belleville worked in Doug Englebart's group (now famous) at SRI, then went to Xerox developing microcomputer technology, then was "stolen" by Steve Jobs to lead the Macintosh development at Apple. He was director of engineering at Apple when the Macintosh was announced (signed the inside of the Mac). He left Apple when Jobs walked out. Read the book "West of Eden" to get a good history of Apple at that time. During this time, I did a sabbatical in San Diego developing a 3D CAD front-end for the Macintosh for CDC mainframes.
+
+I guess a notable outcome of the CADLAB was one of my MS graduates, Bob Peterson. Bob is at Pixar, and has written and directed many of their animations, such as Finding Nemo and Up. He was here this year as an Old Master. How about that for an ME graduate?
+
+So, did you develop the "wiki" idea, or what?
+
+-dave a.
+
+D. C. Anderson
+Professor and Associate Head for Graduate Studies
+School of Mechanical Engineering
+Purdue University
+West Lafayette, IN 47907
+(765) 494-5720
+</div>
+<div class="letter">
+May 23, 2011
+
+Randall -- I've made some progress rendering one aspect of my old program for the web. This link enters at the top level rendering of the calling control flow:
+
+	http://c2.com/nsd/exhibits/graphs/calls.svg
+
+I've written short scripts to render call relationship at three levels:
+
+	* call graph -- whole program with each subroutine as node. links to next level.
+	* flow graph -- one subroutine with each commented block as node. links to nearby subroutines
+	* source code -- whole program with separate &lt;pre> around each subroutine. links to other &lt;pre>
+
+This is enough for me to understand the organization of my program. This isn't "museum grade" rendering yet because it would take too much explanation for someone to understand what they were seeing. I don't know that this can be solved. I'd like to make this accessible to someone who had done a little programming once, but who doesn't know Fortran and wouldn't write a graphics editor.
+
+The call graph captures one dimension of the program. I can think of a few more dimensions that should be rendered:
+
+	program behavior:
+	* call graph -- done in three levels (see above)
+	* data flow within static variables
+	* dynamic allocation of graphic segments by library calls
+
+	user behavior:
+	* visual appearance on the screen
+	* control operations with mouse buttons and chord keyset
+
+	restoration process:
+	* flow of information from artifact to exhibit
+	* methodology of discovery (still being invented)
+
+I'm going to be at Backspace (5th & Davis) tonight for DorkbotPDX. I'd love to show you what I've done and solicit ideas for things to do going forward. I'd be interested in ways to make a more controlled experience for the kinds of information that I'm now showing in graphviz. I'm using the svg output but in my experience that is the source of many disappointments.
+
+Best regards. -- Ward
+</div>
+<div class="letter">
+May 23, 2011
+
+Ward, I'd call but I don't have your number. 503.555.1212 is mine if you want to talk. 
+
+I had an epically shitty day at work and I'm going to stay home with Angie tonight. I'm sorry to let you down. 
+
+I'll review your email today and reply soon. Do let me know what you think of my commit last night. How long are you in town?  I hope we can get together soon; most of this week is open for me. 
+
+Yours,
+
+r
+</div>
+<div class="letter">
+May 24, 2011
+
+Randall -- I'm loving the way those subroutines pop up. But poping up isn't what it feels like. Its better than that.
+
+Think about playing cards. What do you call it when you play one card after another exposing the winning hand? Is that a "lay down"? What ever it is, that's how it feels to "play" the subroutines, one on top of another, to expose the "winning" code flow.
+
+Here is how it is wonderful:
+
+I'm looking at MAIN. I'm thinking about cursor tracking. I click on TRACKR. Flash, I'm there. Now I'm looking at the x, y coordinates that routine picks up from the mouse. Then, with them, it call ...
+
+The story that I'm laying down has to do with control-flow and data-flow mixed together in a way that makes the program responsive to the user. This is the beauty of interactive software. What does the software "think" when responding to the user. How does it think? Where does it happen?
+
+I'd like to attach a class to every variable in each subroutine so that just touching a variable makes it highlight everywhere. This will help me lay down the story about that variable. I would also like to follow that variable across subroutine calls. That is, if LXP is selected in one routine, and its value is bound to JN in the next routine laid down, then JN is automatically highlighted too.
+
+The rules of influence for variables are small in number. If we teach the computer to follow all of them then we have inched our way to symbolic evaluation of the code. But it is only enough symbolic evaluation to help the viewer reliably follow the story that interests them at the moment. 
+
+There are probably twenty stories worth telling about this particular program. That means there are twenty variations of lay down that one would have to "get" to understand the program in a very real sense. It might take five or ten trials of self exploration to understand what one is seeing in a lay down. Then the viewer is ready to be guided through each of the twenty important ones. Twenty trips later, the museum experience is complete.
+
+Forgive me for waving my hands in excitement. I understand that this won't be that easy. But it feels fresh. And if it works at all, well, then we are in new territory. 
+
+I'm off to L.A. this morning where hard work has been piling up. If you think this makes sense, I'll see if I can find a way to annotate variables so as to bring them under jQuery control. I'm guessing a <span> is all that is needed? Opinions? I'm open to suggestions as to how we could follow a variable across a subroutine call. Suggest something. I'll find some time to hack the perl to deliver it.
+
+Best regards. -- Ward
+</div>
+<div class="letter">
+May 27, 2011
+
+Randall -- I'm thinking that the font page of the NSD site should present a message something like the attached slides. I wrote these on my iPad (mostly to experience iPad Keynote) but will transcribe them to html/css this weekend. I'd love for you to review my work as I am a bit out of my element styling a site. Thanks and best regards. -- Ward
+
+	<a href="NSD Editor Restoration.pdf">NSD Editor Restoration.pdf</a>
+</div>
+</body>
+</html>

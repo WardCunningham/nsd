@@ -1,0 +1,27 @@
+body {
+	font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
+	background-color: lightgray;
+}
+
+a, a:hover, a:focus, a:active {
+	text-decoration: none;
+	color: #db2
+}
+
+div.period {
+	margin:40px;
+}
+	
+div.letter {
+	width: 600px;
+	margin: 40px;
+	padding: 50px;
+	background-color: white;
+	white-space: pre-wrap;
+}
+
+h2 {
+	font-size: 300%;
+	color: gray;
+	margin: 10px;
+}
