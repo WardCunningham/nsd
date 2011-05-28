@@ -7,4 +7,4 @@ sh format_subroutines.sh
 sh plot_call_graph.sh
 sh plot_include_graph.sh
 sh plot_block_graphs.sh
-sh plot_index.sh
+sh plot_map.sh
