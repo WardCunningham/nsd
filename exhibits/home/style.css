@@ -1,0 +1,24 @@
+body {
+	font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
+}
+
+a, a:hover, a:focus, a:active {
+	text-decoration: none;
+	color: #db2
+}	
+
+div.section {
+	float: left;
+	margin: 10px;
+	width: 300px;
+}
+
+div.section p {
+	padding: 0px 10px 0px 10px;
+}
+
+div.section h2 {
+	font-size: 300%;
+	color: gray;
+	margin: 10px;
+}
