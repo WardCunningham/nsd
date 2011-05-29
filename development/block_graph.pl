@@ -19,8 +19,8 @@ for (<F>) {
 		if ($mode eq 'code') {
 			$mode = 'comments';
 			$n++;
-			$sequence{$b} = "b$n" unless ($n==1) or ($prev =~ /^\s+GOTO|RETURN/);
-			$b = "b$n";
+			$sequence{$b} = sprintf("b%2.2d",$n) unless ($n==1) or ($prev =~ /^\s+GOTO|RETURN/);
+			$b = sprintf("b%2.2d",$n);
 		}
 		$comments{$b} .= "$1\\n" unless $blanks > 1;
 	} else {
@@ -50,7 +50,7 @@ for $i (sort keys %goto) {$goto .=  join('', map("$i -> $_\n", split(' ', $goto{
 for $i (sort keys %label) {$label .=  join('', map("$_ -> $i\n", split(' ', $label{$i})))};
 
 sub fold {
-	return $_[0] if $_ eq 'b1';
+	return $_[0] if $_ eq 'b01';
 	local $_ = $_[0];
 	s/ *\\n$//;
 	s/ {2,}/ /g;
@@ -73,7 +73,7 @@ $callers
 
 #comments
 node [fillcolor=white penwidth=0]
-$sub -> b1;
+$sub -> b01;
 $comments
 
 #called
