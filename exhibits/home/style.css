@@ -10,7 +10,7 @@ a, a:hover, a:focus, a:active {
 div.section {
 	float: left;
 	margin: 10px;
-	width: 300px;
+	width: 220px;
 }
 
 div.section p {
@@ -21,4 +21,8 @@ div.section h2 {
 	font-size: 300%;
 	color: gray;
 	margin: 10px;
+}
+
+div.section img {
+	width: 230px;
 }
