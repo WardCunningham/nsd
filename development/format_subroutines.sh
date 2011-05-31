@@ -2,6 +2,11 @@ echo $0
 mkdir -p ../exhibits/subroutines
 perl -e '
 	chdir "data/records";
+	@vars = `cat subroutines/BLKDATA`;
+	for (@vars) {
+		$vars{$1} = "$1$2 -- $3" if /C\s+(\w+)(\(.*?\))? - (.*)/;
+	}
+	$vars = join("|", sort keys %vars);
 	print <<;
 <!DOCTYPE HTML>
 <html lang="en">
@@ -26,6 +31,7 @@ perl -e '
 		s/</&lt;/g;
 		s/^\*CALL,([A-Z]+)/*CALL,<a href=\"#includes$1\" class=\"includes\">$1<\/a>/;
 		s/\b(CALL\s+)([A-Z]+)(\s*(\(|$))/call()/eo;
+		s/\b($vars)\b/<span class="global" global="$1">$1<\/span>/g;
 		$_;
 	}
 

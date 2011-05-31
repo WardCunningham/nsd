@@ -15,3 +15,11 @@ pre.subroutines.popup {
 #subroutinesMAIN {
     display : block;
 }
+
+span.global{
+	background-color: #eee;
+}
+
+span.trace{
+	background-color: #fd0;
+}

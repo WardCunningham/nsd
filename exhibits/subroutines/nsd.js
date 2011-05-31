@@ -7,6 +7,7 @@ $( document ).ready( function() {
     hide_subroutines();
     hide_includes();
     init_subroutine_links();
+	variable_trace();
 });
 
 // after a refactor, I don't know if I need to generalize this anymore.
@@ -47,4 +48,12 @@ function popup_subroutine( sub, e ) {
         .css( 'z-index', OPEN_SUBROUTINES.length )
         .show()
         ;
+}
+
+function variable_trace() {
+	$(".global").mouseover(function(){
+		$( "[global=" + $(this).attr('global') + "]" ).addClass("trace");
+	}).mouseout(function(){
+		$("[global=" + $(this).attr('global') + "]").removeClass("trace");
+	});
 }
