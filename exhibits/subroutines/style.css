@@ -15,6 +15,21 @@ pre.subroutines.popup {
 #subroutinesMAIN {
     display : block;
 }
+pre.subroutines.popup .close {
+    color : red;
+    font-size : 20px;
+    text-decoration : underline;
+    padding : 0;
+    margin : 0;
+    position : absolute;
+    top : 5px;
+    right : 5px;
+    cursor : pointer;
+    display : none;
+}
+pre.subroutines.popup.top .close {
+    display : block;
+}
 
 span.global{
 	background-color: #eee;
