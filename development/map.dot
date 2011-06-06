@@ -60,6 +60,14 @@ callers [URL="development/data/callers"];
 info [URL="development/data/info"]
 }
 
+subgraph cluster_interpretation {
+label="interpretation"
+style=filled;
+color=silver;
+URL="development/interpretation"
+narrative [URL="development/interpretation/narrative/subroutines"];
+}
+
 node [shape=rectangle fillcolor=white]
 original -> "separate\nfiles" -> files;
 records -> "plot\nblock\ngraphs" -> blocks;
@@ -70,6 +78,7 @@ callers -> "plot\nblock\ngraphs";
 files -> "separate\nrecords" -> records;
 records -> "invert\ncallers" -> callers;
 records -> "format\nsubroutines" -> subroutines;
+narrative -> "format\nsubroutines";
 records -> "plot\ncall\ngraph" -> calls;
 records -> "plot\ninclude\ngraph" -> includes;
 }
