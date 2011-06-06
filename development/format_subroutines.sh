@@ -25,7 +25,12 @@ perl -e '
 		@lines = `cat $_`;
         print "<div class=\"wrapper $1\" id=\"$1$2\">\n";
 		print "    <pre>\n", map(fmt(),@lines), "    </pre>\n";
-        print "    <div class=\"narrative\">\n", "Fiery the Angels rose, & as they rose deep thunder rolled\nAround their shores: indignant burning with the fires of Orc\nAnd Bostons Angel cried aloud as they flew through the dark night.", "\n    </div>\n";
+		$nariative = -f "../../interpretation/records/$_" ? `cd ../..; perl markup.pl <interpretation/records/$_` : <<;
+			Fiery the Angels rose, & as they rose deep thunder rolled
+			Around their shores: indignant burning with the fires of Orc
+			And Bostons Angel cried aloud as they flew through the dark night.
+
+        print "    <div class=\"narrative\">\n$nariative\n    </div>\n";
         print "</div>\n";
 	}
 

@@ -1,0 +1,7 @@
+The program starts running here.
+
+The first thing to do is set up the dynamic environment. Some data structures have already been set up by data initializations performed by the loader and presiding mostly in BLKDATA. Data structures managed by subroutines often require a few calls to get things started.
+
+An example of dynamic initialization is marking the top of the stack. Here, before there is any important information pushed onto the stack, we call PUSH with the sentinel value zero. Zero will not occur naturally on the stack so that makes it a common choice for programs written <i>close to the machine</i>.
+
+The program then falls into a loop looking for work to be done. The four subroutines therein are each given an opportunity to respond to their respective inputs. They each must do two things: detect the availability of new input, and, process that input completely when it does appear. This processing will include further manipulations of the dynamic environment. 
