@@ -25,7 +25,7 @@ perl -e '
 		@lines = `cat $_`;
         print "<div class=\"wrapper $1\" id=\"$1$2\">\n";
 		print "    <pre>\n", map(fmt(),@lines), "    </pre>\n";
-		$nariative = -f "../../interpretation/records/$_" ? `cd ../..; perl markup.pl <interpretation/records/$_` : <<;
+		$nariative = -f "../../interpretation/narrative/$_" ? `cd ../..; perl markup.pl <interpretation/narrative/$_` : <<;
 			Fiery the Angels rose, & as they rose deep thunder rolled
 			Around their shores: indignant burning with the fires of Orc
 			And Bostons Angel cried aloud as they flew through the dark night.
