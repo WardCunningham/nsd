@@ -1,7 +1,7 @@
 As the mouse moves, we move the cursor (a circle) and select a region of the drawing to be operated on by, say, INCMND.
 
-Potentiometers within Engelbart's original mouse produced an analog voltage which was then read through the Imlac's analog-to-digital converters. Analog noise made the mouse jumpy and hard to use. This was damped by maintaining position history in NXP & NYP. With each invocation, 1/5 of these values was updated with fresh input.
+Potentiometers within Engelbart's original mouse produced an analog voltage which was then read through the Imlac's analog-to-digital converters. Analog noise made the mouse jumpy and hard to use. This is damped by maintaining position history in NXP & NYP. With each invocation, 1/5 of these values are updated with fresh input.
 
-The diagram recursively subdivided the screen space. TRACKR would find the deepest subdivision that included the current (dampened) mouse position. This was highlighted by drawing a second box around it.
+The diagram recursively subdivided the screen space. We find the deepest subdivision that included the current (dampened) mouse position. This is highlighted by drawing a second box around it.
 
-The data structure node so identified was recorded somehow yet to be recalled.
+The data structure node so identified is recorded somehow yet to be recalled.
