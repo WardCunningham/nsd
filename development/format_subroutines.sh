@@ -23,7 +23,10 @@ perl -e '
 	for (<*/*>) {
 		next unless /(\w+)\/(\w+)/;
 		@lines = `cat $_`;
-		print "<pre class=\"$1\" id=\"$1$2\">\n", map(fmt(),@lines), "</pre>\n";
+        print "<div class=\"wrapper $1\" id=\"$1$2\">\n";
+		print "    <pre>\n", map(fmt(),@lines), "    </pre>\n";
+        print "    <div class=\"narrative\">\n", "Fiery the Angels rose, & as they rose deep thunder rolled\nAround their shores: indignant burning with the fires of Orc\nAnd Bostons Angel cried aloud as they flew through the dark night.", "\n    </div>\n";
+        print "</div>\n";
 	}
 
 	sub fmt {

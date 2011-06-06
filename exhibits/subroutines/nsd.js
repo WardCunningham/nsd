@@ -1,29 +1,30 @@
-var POPUP_OFFSET = 20;
+var POPUP_OFFSET = 10;
 var DEFAULT_SUB = 'MAIN';
 var OPEN_SUBROUTINES = [];
 
 $( document ).ready( function() {
     OPEN_SUBROUTINES.push( DEFAULT_SUB );
+    $( '#subroutines'+ DEFAULT_SUB ).addClass( 'top' ); // this is a hack
+
     init_keys();
     init_subroutines();
-    hide_includes();
     init_subroutine_links();
-	variable_trace();
+    variable_trace();
 });
 
 function init_keys() {
     $( document ).keyup( function( e ) {
         if( e.keyCode == 27 ) { // esc
-            $('.cancel').click();
+            $( '.cancel' ).click();
             close_subroutine( OPEN_SUBROUTINES[ OPEN_SUBROUTINES.length - 1 ]);
         }
     });
 }
 
 // after a refactor, I don't know if I need to generalize this anymore.
-// leacing it in place anyway.
+// leaving it in place anyway.
 function init_subroutines() {
-    $( 'pre.subroutines' ).each( function() {
+    $( 'div.subroutines' ).each( function() {
         var sub = $( this ).attr( 'id' ).replace( /^subroutines/, '' );
         if( $.inArray( sub, OPEN_SUBROUTINES )) { // since inArray() returns the index if found
             var close = $( '<a>' )
@@ -36,12 +37,6 @@ function init_subroutines() {
                 .append( close )
                 ;
         }
-    });
-}
-
-function hide_includes() {
-    $( 'pre.includes' ).each( function() {
-        $( this ).hide();
     });
 }
 
@@ -78,9 +73,9 @@ function close_subroutine( sub ) {
 }
 
 function variable_trace() {
-	$(".global").mouseover(function(){
-		$( "[global=" + $(this).attr('global') + "]" ).addClass("trace");
-	}).mouseout(function(){
-		$("[global=" + $(this).attr('global') + "]").removeClass("trace");
-	});
+    $(".global").mouseover(function(){
+        $( "[global=" + $(this).attr('global') + "]" ).addClass("trace");
+    }).mouseout(function(){
+        $("[global=" + $(this).attr('global') + "]").removeClass("trace");
+    });
 }

@@ -1,21 +1,65 @@
 body {
-	background-color:#ccc;
+    font-size : .8em;
+    background-color:#ccc;
 }
-
+a:hover {
+    color : #66f;
+}
+.wrapper {
+    opacity : .8;
+    -moz-opacity : .8;
+    -webkit-opacity : .8;
+}
+.wrapper.top {
+    opacity : 1;
+    -moz-opacity : 1;
+    -webkit-opacity : 1;
+}
+.wrapper pre,
+.wrapper .narrative {
+    float : left;
+}
+.wrapper pre,
+.wrapper .narrative {
+    width : 35%;
+}
+.wrapper pre {
+    border-right : 1px solid #ccc;
+    width : 60%;
+}
+.wrapper .narrative {
+    font-size : 1.2em;
+    font-family : Georgia;
+    padding-left : 1em;
+    border-left : 1px solid #ccc;
+}
+.wrapper:after {
+    content : "\0020";
+    display : block;
+    height : 0;
+    clear : both;
+    visibility : hidden;
+    overflow :hidden;
+}
 pre {
-	background-color:#fff;
-	margin:25px;
-	padding:25px;
+    font-family : Lucida Console, Monaco, monospace;
 }
-
-pre.subroutines.popup {
-    border : 1px solid red;
+div.subroutines {
+    background-color:#fff;
+    margin:25px;
+    padding:25px;
+}
+div.includes {
+    display : none;
+}
+div.subroutines.popup {
+    border : 2px solid #ddd;
     position : absolute;
 }
-#subroutinesMAIN {
-    display : block;
+div.subroutines.popup.top {
+    border-color : #999;
 }
-pre.subroutines.popup .close {
+div.subroutines.popup .close {
     color : red;
     font-size : 20px;
     text-decoration : underline;
@@ -27,14 +71,14 @@ pre.subroutines.popup .close {
     cursor : pointer;
     display : none;
 }
-pre.subroutines.popup.top .close {
+div.subroutines.popup.top .close {
     display : block;
 }
 
 span.global{
-	background-color: #eee;
+    background-color: #eee;
 }
 
 span.trace{
-	background-color: #fd0;
+    background-color: #fd0;
 }

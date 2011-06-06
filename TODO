@@ -1,0 +1,8 @@
+Randall TODO
+------------
+
+- foreground/background still a problem
+    - perhaps the overlap is too much
+- hover state for background subs, click right to them
+- correctly duplicate subs when required
+    - find shortest path
