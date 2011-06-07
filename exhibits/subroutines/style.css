@@ -29,9 +29,13 @@ a:hover {
 }
 .wrapper .narrative {
     font-size : 1.2em;
+    line-height : 22px;
     font-family : Georgia;
     padding-left : 1em;
     border-left : 1px solid #ccc;
+}
+.wrapper .narrative .subroutines {
+    font-family : Lucida Console, Monaco, monospace;
 }
 .wrapper:after {
     content : "\0020";
