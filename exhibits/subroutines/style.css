@@ -2,6 +2,10 @@ body {
     font-size : .8em;
     background-color:#ccc;
 }
+a:visited,
+a:link {
+    color : blue;
+}
 a:hover {
     color : #66f;
 }
@@ -34,7 +38,7 @@ a:hover {
     padding-left : 1em;
     border-left : 1px solid #ccc;
 }
-.wrapper .narrative .subroutines {
+.wrapper .narrative .records {
     font-family : Lucida Console, Monaco, monospace;
 }
 .wrapper:after {
@@ -48,7 +52,7 @@ a:hover {
 pre {
     font-family : Lucida Console, Monaco, monospace;
 }
-div.subroutines {
+div.records {
     background-color:#fff;
     margin:25px;
     padding:25px;
@@ -56,14 +60,14 @@ div.subroutines {
 div.includes {
     display : none;
 }
-div.subroutines.popup {
+div.records.popup {
     border : 2px solid #ddd;
     position : absolute;
 }
-div.subroutines.popup.top {
+div.records.popup.top {
     border-color : #999;
 }
-div.subroutines.popup .close {
+div.records.popup .close {
     color : red;
     font-size : 20px;
     text-decoration : underline;
@@ -75,7 +79,7 @@ div.subroutines.popup .close {
     cursor : pointer;
     display : none;
 }
-div.subroutines.popup.top .close {
+div.records.popup.top .close {
     display : block;
 }
 

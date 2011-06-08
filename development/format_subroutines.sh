@@ -23,7 +23,7 @@ perl -e '
 	for (<*/*>) {
 		next unless /(\w+)\/(\w+)/;
 		@lines = `cat $_`;
-        print "<div class=\"wrapper $1\" id=\"$1$2\">\n";
+        print "<div class=\"wrapper records $1\" id=\"$1$2\">\n";
 		print "    <pre>\n", map(fmt(),@lines), "    </pre>\n";
 		$nariative = -f "../../interpretation/narrative/$_" ? `cd ../..; perl markup.pl <interpretation/narrative/$_` : <<;
 			Fiery the Angels rose, & as they rose deep thunder rolled

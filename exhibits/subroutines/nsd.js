@@ -1,14 +1,16 @@
 var POPUP_OFFSET = 10;
 var DEFAULT_SUB = 'MAIN';
-var OPEN_SUBROUTINES = [];
+var OPEN_RECORDS = [];
 
 $( document ).ready( function() {
-    OPEN_SUBROUTINES.push( DEFAULT_SUB );
+    OPEN_RECORDS.push( DEFAULT_SUB );
     $( '#subroutines'+ DEFAULT_SUB ).addClass( 'top' ); // this is a hack
 
     init_keys();
-    init_subroutines();
-    init_subroutine_links();
+    init_records( 'subroutines' );
+    init_records( 'includes' );
+    init_links( 'includes' );
+    init_links( 'subroutines' );
     variable_trace();
 });
 
@@ -16,21 +18,23 @@ function init_keys() {
     $( document ).keyup( function( e ) {
         if( e.keyCode == 27 ) { // esc
             $( '.cancel' ).click();
-            close_subroutine( OPEN_SUBROUTINES[ OPEN_SUBROUTINES.length - 1 ]);
+            var type = 'subroutines'; // setting the expected value
+            if( $( '.top' ).hasClass( 'includes' )) type = 'includes';
+            close_record( type, OPEN_RECORDS[ OPEN_RECORDS.length - 1 ]);
         }
     });
 }
 
 // after a refactor, I don't know if I need to generalize this anymore.
 // leaving it in place anyway.
-function init_subroutines() {
-    $( 'div.subroutines' ).each( function() {
-        var sub = $( this ).attr( 'id' ).replace( /^subroutines/, '' );
-        if( $.inArray( sub, OPEN_SUBROUTINES )) { // since inArray() returns the index if found
+function init_records( type ) {
+    $( 'div.'+ type ).each( function() {
+        var sub = $( this ).attr( 'id' ).replace( type, '' );
+        if( $.inArray( sub, OPEN_RECORDS )) { // since inArray() returns the index if found
             var close = $( '<a>' )
                 .addClass( 'close' )
                 .text( 'X (ESC)' )
-                .click( function() { close_subroutine( sub )} )
+                .click( function() { close_record( type, sub )} )
                 ;
             $( this )
                 .hide()
@@ -40,35 +44,35 @@ function init_subroutines() {
     });
 }
 
-function init_subroutine_links() {
-    $( 'a.subroutines' ).click( function( e ) {
+function init_links( type ) {
+    $( 'a.'+ type ).click( function( e ) {
         var sub = $( this ).text();
-        OPEN_SUBROUTINES.push( sub );
-        popup_subroutine( sub, e );
+        OPEN_RECORDS.push( sub );
+        popup_subroutine( type, sub, e );
         return false;
     });
 }
 
-function popup_subroutine( sub, e ) {
-    $( '#subroutines'+ OPEN_SUBROUTINES[ OPEN_SUBROUTINES.length - 2 ]).removeClass( 'top' );
-    $( '#subroutines'+ sub )
+function popup_subroutine( type, sub, e ) {
+    $( '#'+ type + OPEN_RECORDS[ OPEN_RECORDS.length - 2 ]).removeClass( 'top' );
+    $( '#'+ type + sub )
         .addClass( 'popup' )
         .addClass( 'top' )
-        .css( 'top', e.pageY - 50 )
-        .css( 'left', OPEN_SUBROUTINES.length * POPUP_OFFSET )
-        .css( 'z-index', OPEN_SUBROUTINES.length )
+        .css( 'top', e.pageY - 15 )
+        .css( 'left', OPEN_RECORDS.length * POPUP_OFFSET )
+        .css( 'z-index', OPEN_RECORDS.length )
         .show()
         ;
 }
 
-function close_subroutine( sub ) {
-    OPEN_SUBROUTINES.pop();
-    $( '#subroutines'+ sub )
+function close_record( type, sub ) {
+    OPEN_RECORDS.pop();
+    $( '#'+ type + sub )
         .hide()
         .removeClass( 'popup' )
         .removeClass( 'top' )
         ;
-    $( '#subroutines'+ OPEN_SUBROUTINES[ OPEN_SUBROUTINES.length - 1 ]).addClass( 'top' );
+    $( '#'+ type + OPEN_RECORDS[ OPEN_RECORDS.length - 1 ]).addClass( 'top' );
     return false;
 }
 
