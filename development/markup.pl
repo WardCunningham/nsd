@@ -6,6 +6,6 @@ for (@lines) {
 print @lines;
 
 sub anchor {
-	return "<a href=\"#subroutines$&\" class=\"subroutines\">$&</a>" if -f "data/records/subroutines/$&";
+	return "<a href=\"#subroutines$&\" class=\"subroutines records\">$&</a>" if -f "data/records/subroutines/$&";
 	return $&;
 }
