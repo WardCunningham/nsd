@@ -1,0 +1,3 @@
+We read each of the three mouse buttons in turn expecting a result well above or below 400. This deviation gets averaged into LVA(N) which goes positive on a sustained button press.
+
+images/mouse-buttons-labeled.png

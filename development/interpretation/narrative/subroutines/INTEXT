@@ -1,0 +1,3 @@
+Enter keystrokes after the last non-blank character of the selected node. Various checks apply: <ul><li>is backspace<li>is return<li>is lower case<li>node full</ul>
+
+Refresh the node's LABEL when the stroke buffer empties.

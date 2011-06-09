@@ -1,0 +1,8 @@
+Keyset chords appear as 5-bit values where the least-significant bit corresponds to the right-most (thumb) key.
+
+A bit-pattern match in LCMN leads to a corresponding jump to the statement numbers found in the computed goto.
+
+New nodes are inserted above or added to the selected node. The thumb inverts these commands to be the corresponding delete.
+
+<font color=red>How are node types encoded? Modified?</font>
+ 
