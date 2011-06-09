@@ -3,3 +3,4 @@ development/data
 exhibits/subroutines/index.html
 exhibits/graphs
 *.svg
+.DS_Store
