@@ -6,6 +6,9 @@ perl -e '
 	for (@vars) {
 		$vars{$1} = "$1$2 -- $3" if /C\s+(\w+)(\(.*?\))? - (.*)/;
 	}
+	$vars{IRF} = $vars{IFT} = $vars{NXP} = $vars{NYP} = "in /MOUSE/";
+	$vars{MDA} = $vars{MTX} = "in /DATA/";
+	$vars{MFN} = "in /FILE/";
 	$vars = join("|", sort keys %vars);
 	print <<;
 <!DOCTYPE HTML>
